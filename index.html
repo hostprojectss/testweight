@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Crane Weight Calculations</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;900&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles/styles.css">
+</head>
+
+<body>
+  <div class="header">
+    <h1>CRANE MAC - Weight Calculations</h1>
+    <p><strong>Fill All Dimensions in mm</strong></p>
+  </div>
+
+  <div class="row">
+
+    <div class="col-lg-4 mainDiv">
+      <form id="spanArea" method="post">
+        <h2>Fill Dimensions of Beams</h2>
+        <div class="label">
+          <label>Enter Span</label><br>
+          <label>Enter Height</label><br>
+          <label>Enter Width</label><br>
+          <label>Side Plate size</label><br>
+          <label>Top Plate</label><br>
+          <label>Bottom Plate</label><br>
+          <label>Square Size</label><br>
+          <label>No. of Beams</label>
+        </div>
+        <div class="input">
+          <input type="number" id="span_v" name="span" placeholder="(in mm)" autocomplete="off"><br>
+          <input type="number" name="height" placeholder="(in mm)" autocomplete="off"><br>
+          <input type="number" name="width" placeholder="(in mm)" autocomplete="off"><br>
+          <input type="number" name="sidePlate" placeholder="(in mm)" value="" autocomplete="off"><br>
+          <input type="number" name="topPlate" placeholder="(in mm)" value="" autocomplete="off"><br>
+          <input type="number" name="bottomPlate" placeholder="(in mm)" value="" autocomplete="off"><br>
+          <input type="number" name="square" placeholder="(in mm)" value="" autocomplete="off"><br>
+          <input type="number" name="noOfBeams" value="" autocomplete="off"><br>
+        </div>
+
+
+        <br>
+
+        <button class="btn btn-dark" type="button" onclick="getData();finalWeight(1)"name="button">Calculate</button><br>
+
+      </form>
+
+      <p id="resultSpan" class="result">Total Weight of Beams will be shown here.</p>
+    </div>
+
+    
+
+    <div class="col-lg-4 mainDiv">
+      <form id="ECArea" method="post">
+        <h2>Fill Dimensions of End Carriages</h2>
+        <div class="label">
+          <label>Enter Span</label><br>
+          <label>Enter Height</label><br>
+          <label>Enter Width</label><br>
+          <label>Side Plate size</label><br>
+          <label>Top Plate</label><br>
+          <label>Bottom Plate</label><br>
+          <label>No. of End Carriages </label><br>
+
+            <label>Wheel Center (optional)</label>
+        </div>
+        <div class="input">
+          <input type="number" name="spanEC" placeholder="(in mm)" autocomplete="off"><br>
+          <input type="number" name="heightEC" placeholder="(in mm)" autocomplete="off"><br>
+          <input type="number" name="widthEC" placeholder="(in mm)" autocomplete="off"><br>
+          <input type="number" name="sidePlateEC" placeholder="(in mm)" value="" autocomplete="off"><br>
+          <input type="number" name="topPlateEC" placeholder="(in mm)" value="" autocomplete="off"><br>
+          <input type="number" name="bottomPlateEC" placeholder="(in mm)" value="" autocomplete="off"><br>
+          <input type="number" name="noOfEC" value="" autocomplete="off"><br>
+          <input type="number" name="wheelDia" placeholder="(in mm)" value="" autocomplete="off"><br>
+        </div>
+
+
+        <br>
+
+        <button class="btn btn-dark" type="button" onclick="getDataEC();finalWeight(2)" name="button2">Calculate</button>
+
+      </form>
+      <p id="resultEC" class="result">Total Weight of End Carriages will be shown here.</p>
+    </div>
+
+    <div id="trolleyDiv" class="col-lg-4 mainDiv">
+      <form id="trolleyArea" method="post">
+        <h2>Fill Dimensions of Trolley</h2>
+        <div class="label">
+
+          <label>Enter Length</label><br>
+          <label>Enter Width</label><br>
+          <label>Enter Channel Size</label><br>
+          <label>Chequered Plate size</label><br>
+        </div>
+        <div class="input">
+
+          <input type="number" name="lengthTrolley" placeholder="(in mm)" autocomplete="off"><br>
+          <input type="number" name="widthTrolley" placeholder="(in mm)" autocomplete="off"><br>
+          <input type="number" name="channelTrolley" placeholder="(in mm)" autocomplete="off"><br>
+          <input type="number" name="chqPlate" placeholder="(in mm)" value="" autocomplete="off"><br>
+
+        </div>
+        <br>
+        <button class="btn btn-dark" type="button" onclick="getDataTrolley();finalWeight(3)" name="button3">Calculate</button>
+
+      </form>
+      <p id="resultTrolley" class="result">Total Weight of Trolley will be shown here.</p>
+    </div>
+
+
+  </div>
+
+  <p id="resultTotal" class="result"></p>
+  <p id="previousDataLine"></p>
+  <p id="1" class="result"></p>
+  <p id="2" class="result"></p>
+  <p id="3" class="result"></p>
+  <p id="4" class="result"></p>
+  <p id="5" class="result"></p>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="js/app.js" charset="utf-8"></script>
+</body>
+
+</html>
